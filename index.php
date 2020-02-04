@@ -22,19 +22,20 @@ $result = query($sqlQuery, $db);
 // function to get data from query array into new data structure
 
 function displayData (array $query) {
+    $result = '';
 
     foreach($query as $array) {
-        echo "<div class='receipt'>";
-            echo '<h2> Receipt </h2>';
-        foreach($array as $key=>$value){
-            echo $value;
-        }
-        echo "</div>";
+        $result .= "<div class='receipt'>";
+        $result .= '<h2> Receipt </h2>';
+        $result .= "<div class='supplier'>" . "<h3>" . $array['supplier_name'] . "</h3>" . "</div>";
+        $result .= "</div>";
     }
-
+    return $result;
 }
-
-//var_dump($result);
+echo "<pre>";
+var_dump($result);
+$rec = displayData($result);
+echo '</pre>';
 
 ?>
 
@@ -48,7 +49,7 @@ function displayData (array $query) {
 
 <body>
     <h1> Receipts </h1>
-    <?php displayData($result);?>
+    <?php echo $rec;?>
 
 
 <!--<div class='receipt'>add some content</div>-->
