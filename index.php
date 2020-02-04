@@ -28,15 +28,18 @@ function displayData (array $query) {
         $result .= "<div class='receipt'>";
         $result .= '<h2> Receipt </h2>';
         $result .= "<div class='supplier'>" . "<h3>" . $array['supplier_name'] . "</h3>" . "</div>";
+        $result .= "<div class='details'>" . "<h4>" . $array['details'] . "</h4>" . "</div>";
+        $result .= "<div class='amount'>" . "<h4>£" . $array['amount'] . "</h4>" . "</div>";
+        $result .= "<div class='id'>" . "<h5>" . "INV". $array['id'] . "</h5>" . "</div>";
+        $result .= "<div class='date'>" . "<h5>" . $array['date'] . "</h5>" . "</div>";
         $result .= "</div>";
     }
     return $result;
 }
-echo "<pre>";
-var_dump($result);
-$rec = displayData($result);
-echo '</pre>';
-
+//echo "<pre>";
+//var_dump($result);
+//echo '</pre>';
+$receipt = displayData($result);
 ?>
 
 <!DOCTYPE html>
@@ -49,12 +52,7 @@ echo '</pre>';
 
 <body>
     <h1> Receipts </h1>
-    <?php echo $rec;?>
-
-
-<!--<div class='receipt'>add some content</div>-->
-<!--<div class='receipt'>add some content</div>-->
-<!--<div class='receipt'>add some content</div>-->
+    <?php echo $receipt;?>
 
 
 </body>
