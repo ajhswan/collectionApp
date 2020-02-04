@@ -14,12 +14,27 @@ function query($query, $db) {
 
     return $result;
 }
+$sqlQuery = 'SELECT `id`, `supplier_name`, `date`, `amount`,`ccy`, `details`
+FROM `receiptRecord`';
+$result = query($sqlQuery, $db);
 
-$result = query('SELECT `id`, `supplier_name`, `date`, `amount`, `details`
-FROM `receiptRecord`;', $db);
 
-var_dump($result);
+// function to get data from query array into new data structure
 
+function displayData (array $query) {
+
+    foreach($query as $array) {
+        echo "<div class='receipt'>";
+            echo '<h2> Receipt </h2>';
+        foreach($array as $key=>$value){
+            echo $value;
+        }
+        echo "</div>";
+    }
+
+}
+
+//var_dump($result);
 
 ?>
 
@@ -32,10 +47,13 @@ var_dump($result);
 </head>
 
 <body>
-<h1> Receipts </h1>
-<div class='receipt'>add some content</div>
-<div class='receipt'>add some content</div>
-<div class='receipt'>add some content</div>
+    <h1> Receipts </h1>
+    <?php displayData($result);?>
+
+
+<!--<div class='receipt'>add some content</div>-->
+<!--<div class='receipt'>add some content</div>-->
+<!--<div class='receipt'>add some content</div>-->
 
 
 </body>
