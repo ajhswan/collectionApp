@@ -19,6 +19,7 @@ $receipt = displayData($result);
 
 <head>
     <title>Collection App</title>
+    <meta name='viewport' content='width=device-width' />
     <link rel='stylesheet' type='text/css' href='normalize.css'/>
     <link rel='stylesheet' type='text/css' href='styles.css' />
 </head>
