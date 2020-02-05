@@ -1,19 +1,23 @@
 <?php
 
 /** dbQuery function to fetch data from database
+ *
  * @param string $query
  * @param PDO $db
  * @return array
  */
-function query(string $query, PDO $db):array {
-$dbQuery = $db->prepare($query);
-$dbQuery->execute();
-$result = $dbQuery->fetchAll();
+function getReceipts(PDO $db):array {
+    $sqlQuery = 'SELECT `id`, `supplier_name`, `date`, `amount`,`ccy`, `details`
+                 FROM `receiptRecord`';
+    $dbQuery = $db->prepare($sqlQuery);
+    $dbQuery->execute();
+    $result = $dbQuery->fetchAll();
 
 return $result;
 }
 
 /** Display data from sql query and loop for each item in the array
+ *
  * @param array $query
  * @return string
  */

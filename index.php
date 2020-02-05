@@ -3,14 +3,11 @@
 require_once 'dbConnect.php';
 require_once 'functions.php';
 
-$db = connectToDb($dbName, $userName, $password);
+$db = connectToDb();
 
-//set query variable and pass to query function to fetch data from DB
-$sqlQuery = 'SELECT `id`, `supplier_name`, `date`, `amount`,`ccy`, `details`
-FROM `receiptRecord`';
-$result = query($sqlQuery, $db);
+$result = getReceipts($db);
 
-$receipt = displayData($result);
+$receipts = displayData($result);
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +23,7 @@ $receipt = displayData($result);
 
 <body>
     <h1> Receipts </h1>
-    <?php echo $receipt;?>
+    <?php echo $receipts;?>
 </body>
 
 </html>
