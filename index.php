@@ -1,7 +1,7 @@
 <?php
 
-require_once('dbConnect.php');
-require_once('functions.php');
+require_once 'dbConnect.php';
+require_once 'functions.php';
 
 $db = connectToDb($dbName, $userName, $password);
 
@@ -10,30 +10,23 @@ $sqlQuery = 'SELECT `id`, `supplier_name`, `date`, `amount`,`ccy`, `details`
 FROM `receiptRecord`';
 $result = query($sqlQuery, $db);
 
-
-
-
-//echo "<pre>";
-//var_dump($result);
-//echo '</pre>';
 $receipt = displayData($result);
 ?>
 
 <!DOCTYPE html>
 
 <html lang='en-gb'>
+
 <head>
     <title>Collection App</title>
+    <link rel='stylesheet' type='text/css' href='normalize.css'/>
     <link rel='stylesheet' type='text/css' href='styles.css' />
 </head>
 
 <body>
     <h1> Receipts </h1>
     <?php echo $receipt;?>
-
-
 </body>
-
 
 </html>
 
