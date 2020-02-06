@@ -44,9 +44,9 @@ function displayData (array $query): string{
 
 /** Validate and sanitise $_POST data from user form submission
  *
- * @param mixed $data
+ * @param mixed $data data from user form and initilised in index.php
  *
- * @return mixed
+ * @return mixed $data to be used in insertData function
  */
 function testInput(string $data): string {
     $data = trim($data);
@@ -57,14 +57,14 @@ function testInput(string $data): string {
 
 /**Insert sanitised data from user form into database
  *
- * @param string $sName
- * @param string $details
- * @param string $amount
- * @param string $ccy
- * @param string $date
- * @param PDO $db
+ * @param string $sName Supplier Name from form
+ * @param string $details Details/Descriptions  from form
+ * @param string $amount amount/spent from form
+ * @param string $ccy currency sleceted on form
+ * @param string $date date slected from dropdown on form
+ * @param PDO $db database connection for insert
  *
- * @return bool
+ * @return bool to check that insert has worked
  */
 function insertData(string $sName, string $details, string $amount, string $ccy, string $date, PDO $db): bool {
 
