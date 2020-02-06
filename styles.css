@@ -40,19 +40,16 @@ body {
     float: right;
 }
 
-
 .receipt .date {
     width: 95%;
     display: grid;
     margin-left: 10px;
-
 }
 
 .receipt .id h5 {
     padding-top: 150px;
     margin-bottom: 5px;
     margin-left: 10px;
-
 }
 
 .receipt .date h5 {
@@ -64,19 +61,12 @@ body {
 }
 
 .box {
-/*    width: 40%;*/
-/*    float le*/
-/*    margin: 0 auto;*/
-/*    background-color: azure;*/
     padding: 20px;
-/*    border: 2px solid black;*/
-/*    border-radius: 20px/50px;*/
-/*    background-clip: padding-box;*/
-/*    text-align: center;*/
 }
 
 .button {
     font-size: 1em;
+    font-weight: bold;
     padding: 10px;
     color: black;
     border: 2px solid cornflowerblue;
@@ -86,7 +76,7 @@ body {
     transition: all 0.7s ease-out;
 }
 .button:hover {
-    background: #06d85f;
+    background: cornflowerblue;
 }
 
 .overlay {
@@ -96,7 +86,7 @@ body {
     left: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.7);
-    transition: opacity 500ms;
+    /*transition: opacity 100ms;*/
     visibility: hidden;
     opacity: 0;
 }
@@ -109,7 +99,7 @@ body {
 .popup {
     margin: 70px auto;
     padding: 20px;
-    background: azure;
+    background: palegoldenrod;
     border-radius: 5px;
     width: 30%;
     position: relative;
@@ -127,7 +117,7 @@ body {
 }
 
 .popup .close:hover {
-    color: #06d85f;
+    color: cornflowerblue;
 }
 
 .popup .content {
@@ -149,9 +139,18 @@ body {
     padding: 0;
 }
 
-#submit {
-    width: 30%;
-    margin: 0 auto;
+input[type=text] {
+    width: 80%;
+}
+
+input[type=submit] {
+     width: 30%;
+     margin: 10px auto;
+ }
+
+input[type=submit]:hover {
+   background-color: cornflowerblue;
+    border-color: cornflowerblue;
 }
 @media screen and (max-width: 1000px)  {
     .receipt {

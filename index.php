@@ -36,7 +36,7 @@ if (isset($_POST["submit"])) {
 <body>
     <h1> Receipts </h1>
     <div class='receiptsContainer'>
-    <?php echo $receipts;?>
+        <?php echo $receipts;?>
     </div>
     <div class='box'>
         <a class='button' href='#popup'>Add Receipt</a>
@@ -50,11 +50,11 @@ if (isset($_POST["submit"])) {
                 <form action='index.php' method='post'>
                     <div class='form'>
                         <h4>Supplier:</h4>
-                        <input type='text' name='supplier_name' size='50' required />
+                        <input type='text' name='supplier_name' required />
                     </div>
                     <div class='form'>
                         <h4>Details:</h4>
-                        <input type='text' name='details' size='50' required/>
+                        <input type='text' name='details' required/>
                     </div>
                     <div class='form'>
                         <h4>Amount:</h4>
@@ -71,7 +71,7 @@ if (isset($_POST["submit"])) {
                         <h4>Date:</h4>
                         <input type='date' name='date' required/>
                     </div>
-                    <div class='form' id='submit'>
+                    <div class='form'>
                         <input type='submit' name='submit' />
                     </div>
                 </form>
