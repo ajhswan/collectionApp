@@ -42,3 +42,37 @@ function displayData (array $query):string{
         return $result;
 }
 
+///validation function
+
+//if (isset($POST["submit"])) {
+//if  ($_SERVER['REQUEST_METHOD'] == 'POST') {
+//    $sName = testInput($_POST['supplier_name']);
+//    $details = testInput($_POST['details']);
+//    $amount = testInput($_POST['amount']);
+//    $ccy = testInput($_POST['ccy']);
+//    $date = testInput($_POST['date']);
+
+//}
+
+
+function testInput($data) {
+    $data = trim($data);
+    $data = filter_var($data, FILTER_SANITIZE_STRING);
+    $data = filter_var($data, FILTER_SANITIZE_SPECIAL_CHARS);
+    $data = filter_var($data, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    return $data;
+}
+
+function insertData($sName, $details, $amount, $ccy, $date, $db) {
+
+    $sqlInsert = $db->prepare("INSERT INTO receiptRecord_test (supplier_name, details, amount,ccy, date)
+              VALUES (:sName, :details, :amount, :ccy, :date)");
+    $sqlInsert->bindParam(':sName', $sName);
+    $sqlInsert->bindParam(':details', $details);
+    $sqlInsert->bindParam(':amount', $amount);
+    $sqlInsert->bindParam(':ccy', $ccy);
+    $sqlInsert->bindParam(':date', $date);
+    $result = $sqlInsert->execute();
+    return $result;
+
+}
