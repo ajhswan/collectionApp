@@ -60,7 +60,7 @@ body {
     overflow: auto;
 }
 
-.box {
+.buttonBox {
     padding: 20px;
 }
 
@@ -75,6 +75,7 @@ body {
     cursor: pointer;
     transition: all 0.7s ease-out;
 }
+
 .button:hover {
     background: cornflowerblue;
 }
@@ -86,7 +87,6 @@ body {
     left: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.7);
-    /*transition: opacity 100ms;*/
     visibility: hidden;
     opacity: 0;
 }
@@ -105,6 +105,7 @@ body {
     position: relative;
     transition: all 5s ease-in-out;
 }
+
 .popup .close {
     position: absolute;
     top: 20px;
@@ -121,20 +122,12 @@ body {
 }
 
 .popup .content {
-    max-height: 60%;
     overflow: auto;
-
-}
-/*.popup h4 {*/
-/*    display: inline;*/
-/*}*/
-.popup .form {
-    display: inline-block;
-    margin: 0;
-    width: 100%;
 }
 
-.popup .form h4 {
+.popup .form label {
+    display:block;
+    font-weight: bold;
     margin: 0;
     padding: 0;
 }
@@ -152,6 +145,7 @@ input[type=submit]:hover {
    background-color: cornflowerblue;
     border-color: cornflowerblue;
 }
+
 @media screen and (max-width: 1000px)  {
     .receipt {
         display: block;
@@ -173,5 +167,14 @@ input[type=submit]:hover {
 
     .receipt h5 {
         font-size: 1.2em;
+    }
+
+    .popup {
+        margin: 70px auto;
+        padding: 20px;
+        background: palegoldenrod;
+        border-radius: 5px;
+        width: 70%;
+        position: relative;
     }
 }
