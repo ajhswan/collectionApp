@@ -38,7 +38,7 @@ if (isset($_POST["submit"])) {
     <div class='receiptsContainer'>
         <?php echo $receipts;?>
     </div>
-    <div class='box'>
+    <div class='buttonBox'>
         <a class='button' href='#popup'>Add Receipt</a>
     </div>
 
@@ -49,27 +49,27 @@ if (isset($_POST["submit"])) {
             <div class='content'>
                 <form action='index.php' method='post'>
                     <div class='form'>
-                        <h4>Supplier:</h4>
-                        <input type='text' name='supplier_name' required />
+                        <label for='supplier'>Supplier:</label>
+                        <input id='supplier' type='text' name='supplier_name' required />
                     </div>
                     <div class='form'>
-                        <h4>Details:</h4>
-                        <input type='text' name='details' required/>
+                        <label for='details'>Details:</label>
+                        <input id='details' type='text' name='details' required/>
                     </div>
                     <div class='form'>
-                        <h4>Amount:</h4>
-                        <input type='text' name='amount' required/>
+                        <label for='amount'>Amount:</label>
+                        <input id='amount' type='text' name='amount' required/>
                     </div>
                     <div class='form'>
-                        <h4>Currency:</h4>
-                        <select name='ccy'>
+                        <label for='ccy'>Currency:</label>
+                        <select id='ccy' name='ccy'>
                             <option value='GBP'>British Pound</option>
                             <option value='USD'>US Dollar</option>
                         </select>
                     </div>
                     <div class='form' >
-                        <h4>Date:</h4>
-                        <input type='date' name='date' required/>
+                        <label for='date'>Date:</label>
+                        <input id='date' type='date' name='date' required/>
                     </div>
                     <div class='form'>
                         <input type='submit' name='submit' />
