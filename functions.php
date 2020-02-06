@@ -67,7 +67,6 @@ function testInput(string $data): string {
  * @return bool to check that insert has worked
  */
 function insertData(string $sName, string $details, string $amount, string $ccy, string $date, PDO $db): bool {
-
     $sqlInsert = $db->prepare("INSERT INTO receiptRecord (supplier_name, details, amount,ccy, date)
               VALUES (:sName, :details, :amount, :ccy, :date)");
     $sqlInsert->bindParam(':sName', $sName);
