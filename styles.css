@@ -1,0 +1,180 @@
+body {
+    background-color: gold;
+}
+
+.receipt {
+    float: left;
+    min-height: 250px;
+    width: 32%;
+    background-color: white;
+    box-shadow: 0px 10px 10px 0px gray;
+    overflow: auto;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 15px;
+    border-radius: 0 25px 0 0;
+}
+
+.receipt h2 {
+    height: 50px;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.receipt h3 {
+    height: 50px;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.receipt .details {
+    width: 70%;
+    float: left;
+    margin-left: 10px;
+}
+
+.receipt .amount {
+    width: 20%;
+    float: right;
+}
+
+.receipt .date {
+    width: 95%;
+    display: grid;
+    margin-left: 10px;
+}
+
+.receipt .id h5 {
+    padding-top: 150px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
+.receipt .date h5 {
+    margin: 0;
+}
+
+.receiptsContainer {
+    overflow: auto;
+}
+
+.buttonBox {
+    padding: 20px;
+}
+
+.button {
+    font-size: 1em;
+    font-weight: bold;
+    padding: 10px;
+    color: black;
+    border: 2px solid cornflowerblue;
+    border-radius: 20px/20px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.7s ease-out;
+}
+
+.button:hover {
+    background: cornflowerblue;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: palegoldenrod;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333333;
+}
+
+.popup .close:hover {
+    color: cornflowerblue;
+}
+
+.popup .content {
+    overflow: auto;
+}
+
+.popup .form label {
+    display:block;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+input[type=text] {
+    width: 80%;
+}
+
+input[type=submit] {
+     width: 30%;
+     margin: 10px auto;
+ }
+
+input[type=submit]:hover {
+   background-color: cornflowerblue;
+    border-color: cornflowerblue;
+}
+
+@media screen and (max-width: 1000px)  {
+    .receipt {
+        display: block;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .receipt h2 {
+        font-size: 2.5em;
+    }
+
+    .receipt h3 {
+        font-size: 2em;
+    }
+
+    .receipt h4 {
+        font-size: 1.5em;
+    }
+
+    .receipt h5 {
+        font-size: 1.2em;
+    }
+
+    .popup {
+        margin: 70px auto;
+        padding: 20px;
+        background: palegoldenrod;
+        border-radius: 5px;
+        width: 70%;
+        position: relative;
+    }
+}
