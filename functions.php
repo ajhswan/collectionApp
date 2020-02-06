@@ -8,7 +8,7 @@
  */
 function getReceipts(PDO $db):array {
     $sqlQuery = 'SELECT `id`, `supplier_name`, `date`, `amount`,`ccy`, `details`
-                 FROM `receiptRecord`';
+                 FROM `receiptRecord_test`';
     $dbQuery = $db->prepare($sqlQuery);
     $dbQuery->execute();
     $result = $dbQuery->fetchAll();

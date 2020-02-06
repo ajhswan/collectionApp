@@ -11,7 +11,8 @@ body {
     overflow: auto;
     margin-left: 5px;
     margin-right: 5px;
-
+    margin-bottom: 15px;
+    border-radius: 0 25px 0 0;
 }
 
 .receipt h2 {
@@ -58,6 +59,100 @@ body {
     margin: 0;
 }
 
+.receiptsContainer {
+    overflow: auto;
+}
+
+.box {
+/*    width: 40%;*/
+/*    float le*/
+/*    margin: 0 auto;*/
+/*    background-color: azure;*/
+    padding: 20px;
+/*    border: 2px solid black;*/
+/*    border-radius: 20px/50px;*/
+/*    background-clip: padding-box;*/
+/*    text-align: center;*/
+}
+
+.button {
+    font-size: 1em;
+    padding: 10px;
+    color: black;
+    border: 2px solid cornflowerblue;
+    border-radius: 20px/20px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.7s ease-out;
+}
+.button:hover {
+    background: #06d85f;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: azure;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333333;
+}
+
+.popup .close:hover {
+    color: #06d85f;
+}
+
+.popup .content {
+    max-height: 60%;
+    overflow: auto;
+
+}
+/*.popup h4 {*/
+/*    display: inline;*/
+/*}*/
+.popup .form {
+    display: inline-block;
+    margin: 0;
+    width: 100%;
+}
+
+.popup .form h4 {
+    margin: 0;
+    padding: 0;
+}
+
+#submit {
+    width: 30%;
+    margin: 0 auto;
+}
 @media screen and (max-width: 1000px)  {
     .receipt {
         display: block;
