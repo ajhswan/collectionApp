@@ -20,7 +20,7 @@ return $result;
 /** Display data from sql query and loop for each item in the array
  *
  * @param array $query
- *
+ * 
  * @return string
  */
 function displayData (array $query): string{
