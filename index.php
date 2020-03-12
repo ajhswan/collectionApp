@@ -2,6 +2,7 @@
 
 require_once 'dbConnect.php';
 require_once 'functions.php';
+ini_set('file_uploads', 'on');
 
 $db = connectToDb();
 
@@ -9,18 +10,62 @@ $result = getReceipts($db);
 
 $receipts = displayData($result);
 
-if (isset($_POST["submit"])) {
 
+if (isset($_POST["submit"])) {
+    // validate data before going to DB
+
+    // sanatize data before sending to DB
     $sName = testInput($_POST['supplier_name']);
     $details = testInput($_POST['details']);
     $amount = testInput($_POST['amount']);
     $ccy = testInput($_POST['ccy']);
     $date = testInput($_POST['date']);
 
+    //if there is and image upload image to upload folder
+    $target_dir = 'uploads/';
+    $target_file = $target_dir . basename($_FILES['fileToUpload']['name']);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    $uploadCheck = getimagesize($_FILES['fileToUpload']['tmp_name']);
+
+
+    if($uploadCheck !== false) {
+        echo 'File is an image -' . $uploadCheck['mime'] . '.';
+        $uploadOk = 1;
+    } else {
+        echo 'File is not an image.';
+        $uploadOk = 0;
+    }
+
+    if($imageFileType != 'jpg' && $imageFileType != 'jpeg' && $imageFileType != 'png' && $imageFileType != 'gif') {
+        echo 'Sorry, only JPG, JPEG, PNG & GIF files are allowed.';
+        $uploadOk = 0;
+    }
+
+    if($uploadOk == 0) {
+        echo 'Sorry, your file was not uploaded';
+
+    } else {
+        if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target_file)) {
+            echo 'The file' . basename($_FILES['fileToUpload']['name']) . 'has been uploaded.';
+
+        } else {
+            echo 'Sorry, there was an error uploading your file';
+        }
+
+    }
+
+// insert data from user form and save in DB
     insertData($sName,$details, $amount, $ccy, $date, $db);
 
-    header('Location: index.php');
+// Automatically save refresh page to show new data from user.
+
+    echo "<meta http-equiv='refresh' content='0'>";
+//    header('Location: index.php')
 }
+// upload images
+
+
 ?>
 <!DOCTYPE html>
 
@@ -47,7 +92,7 @@ if (isset($_POST["submit"])) {
             <h2> Add New Receipt </h2>
             <a class='close' href='#'>&times;</a>
             <div class='content'>
-                <form action='index.php' method='post'>
+                <form action='index.php' method='post' enctype='multipart/form-data'>
                     <div class='form'>
                         <label for='supplier'>Supplier:</label>
                         <input id='supplier' type='text' name='supplier_name' required />
@@ -70,6 +115,10 @@ if (isset($_POST["submit"])) {
                     <div class='form' >
                         <label for='date'>Date:</label>
                         <input id='date' type='date' name='date' required/>
+                    </div>
+                    <div class='form' >
+                        <label for='uploads'>Upload Photo</label>
+                        <input id='fileToUpload' type='file' name='fileToUpload' accept='image/*;capture=camera'  />
                     </div>
                     <div class='form'>
                         <input type='submit' name='submit' />
