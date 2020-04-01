@@ -37,6 +37,8 @@ function displayData (array $query): string{
             $result .= "<div class='amount'>" . "<h4>£" . $array['amount'] . "</h4>" . "</div>";
             $result .= "<div class='id'>" . "<h5>" . "INV" . $array['id'] . "</h5>" . "</div>";
             $result .= "<div class='date'>" . "<h5>" . $array['date'] . "</h5>" . "</div>";
+            $result .= "<div class='recButtons'>" ."<a class='viewButton' href='#'>" . "View" . "</a>";
+            $result .= "<a class='deleteButton' href='#'>" . "Delete" . "</a>" . "</div>";
             $result .= "</div>";
         }
         return $result;
@@ -60,14 +62,14 @@ function testInput(string $data): string {
  * @param string $sName Supplier Name from form
  * @param string $details Details/Descriptions  from form
  * @param string $amount amount/spent from form
- * @param string $ccy currency sleceted on form
- * @param string $date date slected from dropdown on form
+ * @param string $ccy currency selected on form
+ * @param string $date date selected from dropdown on form
  * @param PDO $db database connection for insert
  *
  * @return bool to check that insert has worked
  */
 function insertData(string $sName, string $details, string $amount, string $ccy, string $date, PDO $db): bool {
-    $sqlInsert = $db->prepare("INSERT INTO receiptRecord (supplier_name, details, amount,ccy, date)
+    $sqlInsert = $db->prepare("INSERT INTO receiptRecord (supplier_name, details, amount, ccy, date)
               VALUES (:sName, :details, :amount, :ccy, :date)");
     $sqlInsert->bindParam(':sName', $sName);
     $sqlInsert->bindParam(':details', $details);

@@ -59,12 +59,10 @@ if (isset($_POST["submit"])) {
     insertData($sName,$details, $amount, $ccy, $date, $db);
 
 // Automatically save refresh page to show new data from user.
-
     echo "<meta http-equiv='refresh' content='0'>";
-//    header('Location: index.php')
 }
-// upload images
 
+imagesx
 
 ?>
 <!DOCTYPE html>
